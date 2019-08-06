@@ -4,7 +4,7 @@ variable "startup_script" {
 variable "cluster_name" {}
 variable "region" {}
 variable "project" {}
-variable "isito_version" {}
+variable "istio_version" {}
 variable "helm_version" {}
 variable "calico_version" {}
 variable "bastion_hostname" {}
