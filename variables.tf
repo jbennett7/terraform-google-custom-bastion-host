@@ -12,4 +12,4 @@ variable "bastion_machine_type" {}
 variable "bastion_tags" {
     type = list
 }
-variable "network" {}
+variable "subnetwork" {}

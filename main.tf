@@ -1,5 +1,12 @@
 data "google_compute_zones" "available" {
     region = var.region
+    project = var.project
+}
+
+data "google_compute_subnetwork" "subnetwork" {
+    name = var.subnetwork
+    region = var.region
+    project = var.project
 }
 
 locals {
@@ -23,6 +30,7 @@ data "template_file" "startup_script" {
 resource "google_compute_address" "bastion_external_address" {
   name   = "bastion-external-address"
   region = var.region
+  project = var.project
 }
 
 resource "google_compute_instance" "gke-bastion" {
@@ -40,7 +48,7 @@ resource "google_compute_instance" "gke-bastion" {
   }
 
   network_interface {
-    subnetwork = module.network.subnets_self_links[0]
+    subnetwork = data.google_compute_subnetwork.subnetwork.self_link
 
     # Comment out the following block if not using external access
     access_config {
