@@ -3,7 +3,7 @@ variable "startup_script" {
 }
 variable "cluster_name" {}
 variable "region" {}
-variable "project" {}
+variable "project_id" {}
 variable "istio_version" {}
 variable "helm_version" {}
 variable "calico_version" {}
